@@ -21,7 +21,7 @@ namespace Backtester.Core.Services
                 throw new ArgumentException("Output size must be in the range from 1 to 5000");
             }
             var formatStartDate = startDateTime.ToString("yyyy-MM-dd");
-            var url = $"https://api.twelvedata.com/time_series?start_date={formatStartDate}&outputsize={size}&symbol={symbol}&interval={interval.ToIntervalString()}day&apikey={apiKey}";
+            var url = $"https://api.twelvedata.com/time_series?start_date={formatStartDate}&outputsize={size}&symbol={symbol}&interval={interval.ToIntervalString()}&apikey={apiKey}";
             return await client.GetFromJsonAsync<TwelveDataResponse>(url);
         }
 
